@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 import javax.swing.JFileChooser;
 
-public class searchText2 {
+public class SearchText {
 	public static void listFiles(File file) {
 		Scanner myObj = new Scanner(System.in);
 	    String text;
