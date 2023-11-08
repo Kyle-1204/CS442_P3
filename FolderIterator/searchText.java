@@ -23,18 +23,18 @@ public class SearchText {
 			while(iter.hasNext()) {
 				File f = iter.next();
 				pw.println(f);
-				if(f.getName().toUpperCase().contains(".TXT")
-				|| (f.getName().toUpperCase().contains(".HTM"))
-				|| (f.getName().toUpperCase().contains(".TEXT"))
-				|| (f.getName().toUpperCase().contains(".JAVA"))
-				|| (f.getName().toUpperCase().contains(".C"))
-				|| (f.getName().toUpperCase().contains(".CPP"))
-				|| (f.getName().toUpperCase().contains(".H"))
-				|| (f.getName().toUpperCase().contains(".HTML"))
-				|| (f.getName().toUpperCase().contains(".JS"))
-				|| (f.getName().toUpperCase().contains(".HS"))
-				|| (f.getName().toUpperCase().contains(".XML"))
-				|| (f.getName().toUpperCase().contains(".LOG"))){
+				if(f.getName().toUpperCase().endsWith(".TXT")
+				|| (f.getName().toUpperCase().endsWith(".HTM"))
+				|| (f.getName().toUpperCase().endsWith(".TEXT"))
+				|| (f.getName().toUpperCase().endsWith(".JAVA"))
+				|| (f.getName().toUpperCase().endsWith(".C"))
+				|| (f.getName().toUpperCase().endsWith(".CPP"))
+				|| (f.getName().toUpperCase().endsWith(".H"))
+				|| (f.getName().toUpperCase().endsWith(".HTML"))
+				|| (f.getName().toUpperCase().endsWith(".JS"))
+				|| (f.getName().toUpperCase().endsWith(".HS"))
+				|| (f.getName().toUpperCase().endsWith(".XML"))
+				|| (f.getName().toUpperCase().endsWith(".LOG"))){
 					if(checkWord(f, pw, text))
 						System.out.println(f);
 				}
