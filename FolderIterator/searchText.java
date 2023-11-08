@@ -23,7 +23,10 @@ public class SearchText {
 			while(iter.hasNext()) {
 				File f = iter.next();
 				pw.println(f);
-				if(f.getName().toUpperCase().endsWith(".TXT")
+				if (f.getName().toUpperCase().contains(text)){
+					System.out.println(f);
+				}
+				else if(f.getName().toUpperCase().endsWith(".TXT")
 				|| (f.getName().toUpperCase().endsWith(".HTM"))
 				|| (f.getName().toUpperCase().endsWith(".TEXT"))
 				|| (f.getName().toUpperCase().endsWith(".JAVA"))
@@ -70,27 +73,23 @@ public class SearchText {
 
 	public static boolean checkWord(File f, PrintWriter pw, String text) {
 		boolean ct = false;
-		if (f.getName().toUpperCase().contains(text)){
-			ct = true;
-		}
-		else {
-			try {
-				BufferedReader reader = new BufferedReader(new FileReader(f));
-				String line;
-				while((line = reader.readLine()) != null) {
-					String[] temp = line.split("\\s+");
-					for(String s : temp)
-						if(s.toUpperCase().contains(text)) {
-							ct = true;
-							break;
-						}
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader(f));
+			String line;
+			while((line = reader.readLine()) != null) {
+				String[] temp = line.split("\\s+");
+				for(String s : temp)
+					if(s.toUpperCase().contains(text)) {
+						ct = true;
+						break;
 					}
-				reader.close();
-			} catch (Exception e) {
-				pw.println("PROBLEM WITH " + f);
-				e.printStackTrace(pw);
-			}	
+				}
+			reader.close();
+		} catch (Exception e) {
+			pw.println("PROBLEM WITH " + f);
+			e.printStackTrace(pw);
 		}
 		return ct;
 	}
 }
+
